@@ -20,7 +20,7 @@ const project = new AwsCdkConstructLibrary({
   stability: "experimental",
 
   minNodeVersion: "18.0.0",
-  packageManager: NodePackageManager.NPM,
+  packageManager: NodePackageManager.PNPM,
   prettier: true,
   renovatebot: true,
   autoApproveOptions: {
@@ -39,4 +39,16 @@ const project = new AwsCdkConstructLibrary({
   // devDeps: [],             /* Build dependencies for this module. */
   // packageName: undefined,  /* The "name" in package.json. */
 });
+
+const pnpmVersion = "7.29.0";
+
+project.addFields({
+  packageManager: `pnpm@${pnpmVersion}`,
+  engines: {
+    pnpm: `^${pnpmVersion}`,
+  },
+});
+
+project.addDevDeps("@types/node@^16.0.0");
+
 project.synth();
