@@ -1,14 +1,11 @@
-const projen = require("projen");
-const {
-  awscdk: { AwsCdkConstructLibrary },
-  javascript: { NodePackageManager },
-} = projen;
+const { AwsCdkConstructLibrary } = require("projen/lib/awscdk");
+const { NodePackageManager, NpmAccess } = require("projen/lib/javascript");
 
 const project = new AwsCdkConstructLibrary({
+  name: "@richicoder/elastic-serverless-forwarder-cdk",
   author: "Richard Simpson",
   authorAddress: "richardsimpson@outlook.com",
   defaultReleaseBranch: "main",
-  name: "@richicoder/elastic-serverless-forwarder-cdk",
   repositoryUrl:
     "git@github.com:RichiCoder1/elastic-serverless-forwarder-cdk.git",
   catalog: {
@@ -21,6 +18,7 @@ const project = new AwsCdkConstructLibrary({
 
   minNodeVersion: "18.0.0",
   packageManager: NodePackageManager.PNPM,
+  npmAccess: NpmAccess.PUBLIC,
   prettier: true,
   renovatebot: true,
   autoApproveOptions: {
@@ -33,15 +31,10 @@ const project = new AwsCdkConstructLibrary({
   githubOptions: {
     mergify: false,
   },
-
-  // deps: [],                /* Runtime dependencies of this module. */
-  // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
-  // devDeps: [],             /* Build dependencies for this module. */
-  // packageName: undefined,  /* The "name" in package.json. */
 });
 
+// Add pnpm corepack config
 const pnpmVersion = "7.29.0";
-
 project.addFields({
   packageManager: `pnpm@${pnpmVersion}`,
   engines: {
@@ -49,6 +42,7 @@ project.addFields({
   },
 });
 
+// Fix for TS compilation error
 project.addDevDeps("@types/node@^16.0.0");
 
 project.synth();
