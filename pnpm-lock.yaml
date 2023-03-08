@@ -5,6 +5,7 @@ overrides:
   '@types/babel__traverse': 7.18.2
 
 specifiers:
+  '@jest/globals': ^27.5.1
   '@types/jest': ^27
   '@types/node': ^18
   '@typescript-eslint/eslint-plugin': ^5
@@ -29,8 +30,13 @@ specifiers:
   standard-version: ^9
   ts-jest: ^27
   typescript: ^4.9.5
+  yaml: ^2.2.1
+
+dependencies:
+  yaml: 2.2.1
 
 devDependencies:
+  '@jest/globals': 27.5.1
   '@types/jest': 27.5.2
   '@types/node': 18.14.6
   '@typescript-eslint/eslint-plugin': 5.54.1_mlk7dnz565t663n4razh6a6v6i
@@ -6955,7 +6961,6 @@ packages:
   /yaml/2.2.1:
     resolution: {integrity: sha512-e0WHiYql7+9wr4cWMx3TVQrNwejKaEe7/rHNmQmqRjazfOP5W8PB6Jpebb5o6fIapbz9o9+2ipcaTM2ZwDI6lw==}
     engines: {node: '>= 14'}
-    dev: true
 
   /yargs-parser/20.2.9:
     resolution: {integrity: sha512-y11nGElTIV+CT3Zv9t7VKl+Q3hTQoT9a1Qzezhhl6Rp21gJ/IVTW7Z3y9EWXhuUBC2Shnf+DX0antecpAwSP8w==}

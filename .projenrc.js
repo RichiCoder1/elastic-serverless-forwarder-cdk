@@ -16,6 +16,9 @@ const project = new AwsCdkConstructLibrary({
   cdkVersion: "2.66.0",
   stability: "experimental",
 
+  bundledDeps: ["yaml"],
+  devDeps: ["@jest/globals"],
+
   minNodeVersion: "18.0.0",
   packageManager: NodePackageManager.PNPM,
   npmAccess: NpmAccess.PUBLIC,
@@ -27,6 +30,8 @@ const project = new AwsCdkConstructLibrary({
   docgen: true,
   stale: true,
   compat: true,
+
+  devContainer: true,
 
   githubOptions: {
     mergify: false,

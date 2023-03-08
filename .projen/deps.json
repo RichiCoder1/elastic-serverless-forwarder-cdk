@@ -1,6 +1,10 @@
 {
   "dependencies": [
     {
+      "name": "@jest/globals",
+      "type": "build"
+    },
+    {
       "name": "@types/jest",
       "version": "^27",
       "type": "build"
@@ -108,6 +112,10 @@
     {
       "name": "typescript",
       "type": "build"
+    },
+    {
+      "name": "yaml",
+      "type": "bundled"
     },
     {
       "name": "@types/babel__traverse",
