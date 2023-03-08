@@ -37,19 +37,14 @@ const project = new AwsCdkConstructLibrary({
 
   githubOptions: {
     mergify: false,
-  }
+  },
 });
 
 // Fix for TS compilation error
 project.addDevDeps();
 
 project.addFields({
-  files: [
-    "lib/**",
-    "LICENSE",
-    "README.md",
-    ".jsii",
-  ]
-})
+  files: ["lib/**", "LICENSE", "README.md", ".jsii"],
+});
 
 project.synth();
