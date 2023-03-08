@@ -1,5 +1,8 @@
-import { Hello } from "../src";
+import { App, Stack } from "aws-cdk-lib";
+import { ServerlessForwarder } from "../src";
 
-test("hello", () => {
-  expect(new Hello().sayHello()).toBe("hello, world!");
+test("can new", () => {
+  const app = new App();
+  const stack = new Stack(app, "MyStack");
+  new ServerlessForwarder(stack, "Forwarder", {});
 });

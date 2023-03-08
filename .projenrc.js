@@ -43,6 +43,6 @@ project.addFields({
 });
 
 // Fix for TS compilation error
-project.addDevDeps("@types/node@^16.0.0");
+project.addDevDeps("jsii@v4.9-next");
 
 project.synth();
