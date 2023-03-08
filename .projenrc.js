@@ -3,6 +3,7 @@ const { NodePackageManager, NpmAccess } = require("projen/lib/javascript");
 
 const project = new AwsCdkConstructLibrary({
   name: "@richicoder/elastic-serverless-forwarder-cdk",
+  description: "CDK construct for the Elastic Serverless Forwarder",
   author: "Richard Simpson",
   authorAddress: "richardsimpson@outlook.com",
   defaultReleaseBranch: "main",
@@ -15,12 +16,13 @@ const project = new AwsCdkConstructLibrary({
 
   cdkVersion: "2.66.0",
   stability: "experimental",
+  compressAssembly: true,
 
   bundledDeps: ["yaml"],
   devDeps: ["@jest/globals"],
 
   minNodeVersion: "18.0.0",
-  packageManager: NodePackageManager.PNPM,
+  packageManager: NodePackageManager.NPM,
   npmAccess: NpmAccess.PUBLIC,
   prettier: true,
   renovatebot: true,
@@ -35,19 +37,19 @@ const project = new AwsCdkConstructLibrary({
 
   githubOptions: {
     mergify: false,
-  },
-});
-
-// Add pnpm corepack config
-const pnpmVersion = "7.29.0";
-project.addFields({
-  packageManager: `pnpm@${pnpmVersion}`,
-  engines: {
-    pnpm: `^${pnpmVersion}`,
-  },
+  }
 });
 
 // Fix for TS compilation error
-project.addDevDeps("jsii@v4.9-next");
+project.addDevDeps();
+
+project.addFields({
+  files: [
+    "lib/**",
+    "LICENSE",
+    "README.md",
+    ".jsii",
+  ]
+})
 
 project.synth();

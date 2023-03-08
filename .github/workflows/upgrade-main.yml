@@ -22,12 +22,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18.0.0
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2.2.4
-        with:
-          version: "7"
       - name: Install dependencies
-        run: pnpm i --frozen-lockfile
+        run: npm ci
       - name: Upgrade dependencies
         run: npx projen upgrade
       - name: Find mutations

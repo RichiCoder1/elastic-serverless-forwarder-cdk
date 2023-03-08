@@ -23,12 +23,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18.0.0
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2.2.4
-        with:
-          version: "7"
       - name: Install dependencies
-        run: pnpm i --no-frozen-lockfile
+        run: npm install
       - name: build
         run: npx projen build
       - name: Find mutations
@@ -102,14 +98,10 @@ jobs:
       - name: Restore build artifact permissions
         run: cd dist && setfacl --restore=permissions-backup.acl
         continue-on-error: true
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2.2.4
-        with:
-          version: "7"
       - name: Prepare Repository
         run: mv dist .repo
       - name: Install Dependencies
-        run: cd .repo && pnpm i --frozen-lockfile
+        run: cd .repo && npm ci
       - name: Create js artifact
         run: cd .repo && npx projen package:js
       - name: Collect js Artifact

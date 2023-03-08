@@ -5,11 +5,10 @@
 		"dockerfile": "Dockerfile"
 	},
 	"mounts": [
-		"source=${localWorkspaceFolderBasename}-pnpm,target=/home/superchain/.local/share/pnpm,type=volume",
 		"source=${localWorkspaceFolderBasename}-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume"
 	],
-	"postCreateCommand": "sudo corepack enable && sudo chown -R superchain:superchain ${containerWorkspaceFolder} && sudo chown superchain:superchain ${containerEnv:HOME}/.local/share/pnpm/ && pnpm config set store-dir ${containerEnv:HOME}/.local/share/pnpm/store",
-	"postStartCommand": "pnpm i && npx projen",
+	"postCreateCommand": "sudo corepack enable && sudo chown -R superchain:superchain ${containerWorkspaceFolder}",
+	"postStartCommand": "npm ci && npx projen",
 	"features": {
 		// The superchain base image solid deps already installed, but this adds some extra stuff
 		"ghcr.io/devcontainers/features/common-utils:2": {

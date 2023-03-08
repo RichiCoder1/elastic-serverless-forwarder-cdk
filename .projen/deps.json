@@ -70,6 +70,10 @@
       "type": "build"
     },
     {
+      "name": "jsii",
+      "type": "build"
+    },
+    {
       "name": "jsii-diff",
       "type": "build"
     },
@@ -79,11 +83,6 @@
     },
     {
       "name": "jsii-pacmak",
-      "type": "build"
-    },
-    {
-      "name": "jsii",
-      "version": "v4.9-next",
       "type": "build"
     },
     {

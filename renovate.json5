@@ -30,7 +30,6 @@
     "eslint",
     "jest-junit",
     "jest",
-    "jsii",
     "npm-check-updates",
     "standard-version",
     "ts-jest",
