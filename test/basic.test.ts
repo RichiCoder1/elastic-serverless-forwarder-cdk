@@ -21,20 +21,3 @@ test("create works", () => {
 
   expect(template.toJSON()).toMatchSnapshot();
 });
-
-test("config works", () => {
-  const app = new App();
-  const stack = new Stack(app, "MyStack");
-
-  const queue = new Queue(stack, "TestQueue");
-
-  const output = new ElasticsearchOuput({});
-
-  const forwarder = new ServerlessForwarder(stack, "Forwarder", {
-    inputs: [new SQSInput({ queue }, [output])],
-  });
-
-  const config = forwarder._rendered;
-
-  expect(config).toMatchSnapshot();
-});

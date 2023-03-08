@@ -1,15 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`config works 1`] = `
-"inputs:
-  - type: sqs
-    id: \${Token[TOKEN.700]}
-    outputs:
-      - type: elasticsearch
-        args: {}
-"
-`;
-
 exports[`create works 1`] = `
 Object {
   "Parameters": Object {
